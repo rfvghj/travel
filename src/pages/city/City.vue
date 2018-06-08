@@ -7,7 +7,8 @@
 	:hot="hotCities"
 	:letter="letter"></city-list>
 <city-alphabet
-	:cities="cities"></city-alphabet>
+	:cities="cities"
+	@change="handleLetterChange"></city-alphabet>
 </div>
 </template>
 
@@ -43,8 +44,11 @@
 					const data=res.data
 					this.cities=data.cities
 					this.hotCities=data.hotCities
+				}	
+			},
+			handleLetterChange (letter) {
+					this.letter=letter
 				}
-			}
 		},
 		mounted (){
 			this.getCityInfo()
