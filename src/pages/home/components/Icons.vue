@@ -6,9 +6,9 @@
 			v-for="item of page"
 			:key="item.id">
 			<div class="icon-img">
-			<img class="icon-img-content" src="item.imgurl"/>
+			<img class="icon-img-content" :src="item.imgUrl"/>
 			</div>
-			<p class="icon-content">{{item.decs}}</p>
+			<p class="icon-content">{{item.desc}}</p>
 		</div>
 		</swiper-slide>
 		</swiper>
@@ -18,57 +18,19 @@
 <script>
 	export default{
 		name:'HomeIcons',
+		 props: {
+   		 list: Array
+  				},
 		data () {
 			return{swiperOption: {
        				 autoplay: false
-     				},
-				iconList:[{
-					id:"001",
-					imgurl:'../../../../build/logo.png',
-					decs:"想你"
-				},
-				{
-					id:"002",
-					imgurl:"../../../../build/logo.png",
-					decs:"想你"
-				},
-				{
-					id:"003",
-					imgurl:"../../../../build/logo.png",
-					decs:"想你"
-				},
-				{
-					id:"004",
-					imgurl:"../../../../build/logo.png",
-					decs:"想你"
-				},
-				{
-					id:"005",
-					imgurl:"../../../../build/logo.png",
-					decs:"想你"
-				},
-				
-				{
-					id:"007",
-					imgurl:"../../../../build/logo.png",
-					decs:"想你"
-				},
-				{
-					id:"008",
-					imgurl:"../../../../build/logo.png",
-					decs:"想你"
-				},
-				{
-					id:"009",
-					imgurl:"../../../../build/logo.png",
-					decs:"想你"
-				}]
+     				}
 			}
 		},
 		computed: {
 			pages () {
 				const pages=[]
-				this.iconList.forEach((item,index)=>{
+				this.list.forEach((item,index)=>{
 					const page=Math.floor(index/8)
 					//动态创建数组
 					if(!pages[page]){
@@ -85,10 +47,11 @@
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
 @import '~styles/mixins.styl'
-	.icons
-		overflow:hidden
+	.icons>>>.swiper-container
 		height:0
 		padding-bottom:50%
+	.icons
+		margin-top: .1rem
 		.icon
 			position:relative
 			overflow:hidden
