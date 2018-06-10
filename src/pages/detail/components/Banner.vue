@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="banner" @click="handleBannerClick">
-			<img class="banner-img" src="../../../../build/logo.png"/>
+			<img class="banner-img" src="//img1.qunarzz.com/sight/p0/1510/13/1384384fca5bc2a590.img.jpg_600x330_edbdde13.jpg"/>
 			<div class="banner-info">
 				<div class="banner-title">
 					fff
@@ -65,7 +65,7 @@ export default {
 			.banner-title
 				flex:1
 				font-size:.32rem
-				padding:.2rem
+				padding:0 .2rem
 			.banner-number
 				height:.32rem
 				line-height:.32rem
